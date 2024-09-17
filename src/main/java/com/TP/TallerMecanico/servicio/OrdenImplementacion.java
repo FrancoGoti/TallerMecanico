@@ -5,8 +5,8 @@ import java.util.List;
 import com.TP.TallerMecanico.entidad.Estado;
 import com.TP.TallerMecanico.entidad.Orden;
 import com.TP.TallerMecanico.entidad.Tecnico;
-import com.TP.TallerMecanico.interfaz.IOrdenDao;
-import com.TP.TallerMecanico.interfaz.IEstadoDao;
+import com.TP.TallerMecanico.interfaz.IOrden;
+import com.TP.TallerMecanico.interfaz.IEstado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,10 +18,10 @@ public class OrdenImplementacion implements IOrdenService {
     //los metodos de una clase que implemente esta interfaz
 
     @Autowired
-    private IOrdenDao ordenDao;
+    private IOrden ordenDao;
 
     @Autowired
-    private IEstadoDao estadoDao;
+    private IEstado estadoDao;
 
     //A continuacion todos los metodos de la clase
     @Override

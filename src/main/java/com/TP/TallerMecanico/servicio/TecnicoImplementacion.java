@@ -1,7 +1,7 @@
 package com.TP.TallerMecanico.servicio;
 
 import com.TP.TallerMecanico.entidad.Tecnico;
-import com.TP.TallerMecanico.interfaz.ITecnicoDao;
+import com.TP.TallerMecanico.interfaz.ITecnico;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class TecnicoImplementacion implements ITecnicoService {
     //los metodos de una clase que implemente esta interfaz
 
     @Autowired
-    private ITecnicoDao tecnicoDao;
+    private ITecnico tecnicoDao;
 
     //A continuacion todos los metodos de la clase
 

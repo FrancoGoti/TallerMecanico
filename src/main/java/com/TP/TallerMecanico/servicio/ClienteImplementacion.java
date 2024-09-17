@@ -2,8 +2,8 @@ package com.TP.TallerMecanico.servicio;
 
 import com.TP.TallerMecanico.entidad.Cliente;
 import com.TP.TallerMecanico.entidad.Vehiculo;
-import com.TP.TallerMecanico.interfaz.IClienteDao;
-import com.TP.TallerMecanico.interfaz.IVehiculoDao;
+import com.TP.TallerMecanico.interfaz.ICliente;
+import com.TP.TallerMecanico.interfaz.IVehiculo;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,13 +16,13 @@ public class ClienteImplementacion implements IClienteService {
     //los metodos de una clase que implemente esta interfaz
     
     @Autowired
-    private IVehiculoDao vehiculoDao;
+    private IVehiculo vehiculoDao;
 
     @Autowired
     private IVehiculoService vehiculoService;
 
     @Autowired
-    private IClienteDao clienteDao;
+    private ICliente clienteDao;
 
     //A continuacion todos los metodos de la clase
 

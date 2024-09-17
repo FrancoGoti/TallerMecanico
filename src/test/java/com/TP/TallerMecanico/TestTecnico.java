@@ -10,13 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.TP.TallerMecanico.entidad.Tecnico;
-import com.TP.TallerMecanico.interfaz.ITecnicoDao;
+import com.TP.TallerMecanico.interfaz.ITecnico;
 
 @SpringBootTest
 public class TestTecnico {
 
     @Autowired
-    private ITecnicoDao tecnicoDao;
+    private ITecnico tecnicoDao;
 
     @Test
     public void testGuardarTecnico() {
