@@ -2,7 +2,7 @@ package com.TP.TallerMecanico.servicio;
 
 import com.TP.TallerMecanico.entidad.Imagen;
 import com.TP.TallerMecanico.entidad.Orden;
-import com.TP.TallerMecanico.interfaz.IImagenDao;
+import com.TP.TallerMecanico.interfaz.IImagen;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +13,7 @@ import java.util.List;
 public class ImagenImplementacion implements IImagenService {
 
     @Autowired
-    private IImagenDao imagenDao;
+    private IImagen imagenDao;
 
     @Override
     @Transactional(readOnly = true)
