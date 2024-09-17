@@ -3,9 +3,9 @@ package com.TP.TallerMecanico.servicio;
 import com.TP.TallerMecanico.entidad.DetalleOrden;
 import com.TP.TallerMecanico.entidad.Orden;
 import com.TP.TallerMecanico.entidad.Servicio;
-import com.TP.TallerMecanico.interfaz.IDetalleOrdenDao;
+import com.TP.TallerMecanico.interfaz.IDetalleOrden;
 import java.util.List;
-import com.TP.TallerMecanico.interfaz.IOrdenDao;
+import com.TP.TallerMecanico.interfaz.IOrden;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,10 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class DetalleOrdenImplementacion implements IDetalleOrdenService {
 
     @Autowired
-    private IDetalleOrdenDao detalleOrdenDao;
+    private IDetalleOrden detalleOrdenDao;
 
     @Autowired
-    private IOrdenDao ordenDao;
+    private IOrden ordenDao;
 
     @Override
     @Transactional(readOnly = true)

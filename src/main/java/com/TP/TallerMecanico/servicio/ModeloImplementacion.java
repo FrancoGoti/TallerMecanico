@@ -3,8 +3,8 @@ package com.TP.TallerMecanico.servicio;
 import com.TP.TallerMecanico.entidad.Marca;
 import com.TP.TallerMecanico.entidad.Modelo;
 import com.TP.TallerMecanico.entidad.Vehiculo;
-import com.TP.TallerMecanico.interfaz.IModeloDao;
-import com.TP.TallerMecanico.interfaz.IVehiculoDao;
+import com.TP.TallerMecanico.interfaz.IModelo;
+import com.TP.TallerMecanico.interfaz.IVehiculo;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class ModeloImplementacion implements IModeloService {
 
     @Autowired
-    private IModeloDao modeloDao;
+    private IModelo modeloDao;
 
     @Autowired
-    private IVehiculoDao vehiculoDao;
+    private IVehiculo vehiculoDao;
 
     @Autowired
     private IVehiculoService vehiculoService;

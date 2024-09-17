@@ -1,7 +1,7 @@
 package com.TP.TallerMecanico.servicio;
 
 import com.TP.TallerMecanico.entidad.Estado;
-import com.TP.TallerMecanico.interfaz.IEstadoDao;
+import com.TP.TallerMecanico.interfaz.IEstado;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class EstadoImplementacion implements IEstadoService {
     //los metodos de una clase que implemente esta interfaz
 
     @Autowired
-    private IEstadoDao estadoDao;
+    private IEstado estadoDao;
 
     //A continuacion todos los metodos de la clase
 

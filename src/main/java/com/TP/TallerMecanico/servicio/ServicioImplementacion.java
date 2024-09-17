@@ -1,7 +1,7 @@
 package com.TP.TallerMecanico.servicio;
 
 import com.TP.TallerMecanico.entidad.Servicio;
-import com.TP.TallerMecanico.interfaz.IServicioDao;
+import com.TP.TallerMecanico.interfaz.IServicio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class ServicioImplementacion implements IServicioService {
     //los metodos de una clase que implemente esta interfaz
 
     @Autowired
-    private IServicioDao servicioDao;
+    private IServicio servicioDao;
 
     @Override
     @Transactional

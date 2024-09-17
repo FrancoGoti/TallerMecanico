@@ -7,20 +7,20 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.TP.TallerMecanico.entidad.Estado;
-import com.TP.TallerMecanico.interfaz.IDetalleOrdenDao;
-import com.TP.TallerMecanico.interfaz.IEstadoDao;
-import com.TP.TallerMecanico.interfaz.IOrdenDao;
+import com.TP.TallerMecanico.interfaz.IDetalleOrden;
+import com.TP.TallerMecanico.interfaz.IEstado;
+import com.TP.TallerMecanico.interfaz.IOrden;
 
 @Service
 public class EstadisticaImplementacion implements IEstadisticaService {
     @Autowired
-    private IOrdenDao ordenDao;
+    private IOrden ordenDao;
 
     @Autowired
-    private IDetalleOrdenDao detalleOrdenDao;
+    private IDetalleOrden detalleOrdenDao;
 
     @Autowired
-    private IEstadoDao estadoDao;
+    private IEstado estadoDao;
     @Override
     public Map<String, Map<String, Double>> obtenerEstadisticasIngresosMensuales(int year) {
         String nombreFacturada = "FACTURADA";
