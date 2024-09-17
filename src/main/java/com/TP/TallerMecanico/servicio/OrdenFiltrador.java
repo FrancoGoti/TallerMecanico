@@ -5,17 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.TP.TallerMecanico.entidad.Orden;
-import com.TP.TallerMecanico.interfaz.IOrdenDao;
+import com.TP.TallerMecanico.interfaz.IOrden;
 
 @Service
 public class OrdenFiltrador {
     @Autowired
-    private IOrdenDao ordenDao;
+    private IOrden ordenDao;
 
     @Autowired
     private IOrdenService ordenService;
 
-    public OrdenFiltrador(IOrdenDao ordenDao, IOrdenService ordenService) {
+    public OrdenFiltrador(IOrden ordenDao, IOrdenService ordenService) {
         this.ordenDao = ordenDao;
         this.ordenService = ordenService;
     }

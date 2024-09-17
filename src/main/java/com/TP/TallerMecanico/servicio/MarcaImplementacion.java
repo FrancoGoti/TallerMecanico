@@ -2,8 +2,8 @@ package com.TP.TallerMecanico.servicio;
 
 import com.TP.TallerMecanico.entidad.Marca;
 import com.TP.TallerMecanico.entidad.Modelo;
-import com.TP.TallerMecanico.interfaz.IMarcaDao;
-import com.TP.TallerMecanico.interfaz.IModeloDao;
+import com.TP.TallerMecanico.interfaz.IMarca;
+import com.TP.TallerMecanico.interfaz.IModelo;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,10 +16,10 @@ public class MarcaImplementacion implements IMarcaService {
     //los metodos de una clase que implemente esta interfaz
 
     @Autowired
-    private IMarcaDao marcaDao;
+    private IMarca marcaDao;
 
     @Autowired
-    private IModeloDao modeloDao;
+    private IModelo modeloDao;
 
     @Autowired 
     private IModeloService modeloService;

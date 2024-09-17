@@ -3,8 +3,8 @@ package com.TP.TallerMecanico.servicio;
 import com.TP.TallerMecanico.entidad.Orden;
 import com.TP.TallerMecanico.entidad.Tecnico;
 import com.TP.TallerMecanico.entidad.Vehiculo;
-import com.TP.TallerMecanico.interfaz.IOrdenDao;
-import com.TP.TallerMecanico.interfaz.IVehiculoDao;
+import com.TP.TallerMecanico.interfaz.IOrden;
+import com.TP.TallerMecanico.interfaz.IVehiculo;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +18,10 @@ public class VehiculoImplementacion implements IVehiculoService {
     //los metodos de una clase que implemente esta interfaz
 
     @Autowired
-    private IVehiculoDao vehiculoDao;
+    private IVehiculo vehiculoDao;
 
     @Autowired
-    private IOrdenDao ordenDao;
+    private IOrden ordenDao;
 
     //A continuacion todos los metodos de la clase
 
