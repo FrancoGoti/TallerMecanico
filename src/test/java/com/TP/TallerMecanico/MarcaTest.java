@@ -18,6 +18,7 @@ public class MarcaTest {
         System.setProperty("webdriver.edge.driver", "C:\\Users\\franc\\Desktop\\Universidad\\Testing de Software\\Driver_Notes\\msedgedriver.exe"); 
         WebDriver driver = new EdgeDriver();
 
+
         try {
             // LOGUEO
             driver.get("http://localhost:8080/login");
@@ -36,8 +37,13 @@ public class MarcaTest {
             Thread.sleep(1500); // Pausa de 2 segundos
 
             // PRUEBA MARCA
-            driver.get("http://localhost:8080/agregarMarca");
+            driver.get("http://localhost:8080/marcas");
             Thread.sleep(1500);
+
+            WebElement botonAgregar = driver.findElement(By.linkText("Agregar"));
+            botonAgregar.click();
+            Thread.sleep(1500);
+
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
