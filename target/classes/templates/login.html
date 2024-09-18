@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    
+    <div class="hero">
+    
+    <div class="fila flex-center">
+        <h2 class="col-100">Inicio de Sesión</h2>
+    </div>
+    
+    <div class="fila flex-center ">
+    <form class="caja-1" th:action="@{/login}" method="post">
+        
+        <!-- div de usuario -->
+        <div class="flex-around">
+            <label class="margenNuevo" for="username">Nombre:</label>
+            <input type="text" id="username" name="username"/>
+        </div>
+    
+        <!-- div de contrasena -->
+        <div class="flex-around m-t">
+            <label class="m-r-small" for="password">Contraseña:</label>
+            <input type="password" id="password" name="password"/>
+        </div>
+    
+        <!-- div del boton -->
+        <div class="flex-center m-t">
+            <button type="submit">Aceptar</button>
+        </div>
+        
+        <div class="m-t-small flex-center" th:if="${param.error}">
+            <p style="color: yellow;">Nombre o contraseña incorrecta.</p>
+        </div>
+        
+    </form>
+    </div>
+</div>
+</body>
+</html>
