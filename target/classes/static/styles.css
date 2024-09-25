@@ -9,7 +9,6 @@
 
 body{
     font-family: "Roboto", sans-serif;
-   
 }
 
 .hero {
@@ -69,7 +68,6 @@ body{
     padding: 0.5rem 1rem;
 }
 
-
 .flex-start{
     display: flex;
     justify-content: flex-start;
@@ -108,7 +106,6 @@ body{
 }
 
 /* espaciados y margenes */
-
 .m-r{
     margin-right: 1rem;
 }
@@ -121,7 +118,7 @@ body{
 .m-l{
     margin-left: 1rem;
 }
-
+/* margenes mas pequenos */
 .m-r-small{
     margin-right: 0.5rem;
 }
@@ -135,7 +132,8 @@ body{
     margin-left: 0.5rem;
 }
 
-.caja-1{
+/* estilos para la pagina de logueo */
+.caja-login{
     background-color: #1e69a2b7;
     padding: 1rem 1rem;
     border: 1px solid rgba(0, 0, 0, 0.30);
@@ -143,6 +141,14 @@ body{
     border-radius: 4px;
 }
 
+.caja-inicio{
+    background-color: #1e69a2b7;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.30);
+    box-shadow: 2px 4px 10px 4px #ffffff54;   
+    border-radius: 4px;
+    width: 20%;
+}
 
 label{
     color: white;
@@ -173,7 +179,7 @@ input:focus{
     border: 0.5px solid black;
 }
 
-button {
+.caja-login button {
     border: 1px solid rgba(0, 0, 0, 0.30);
     background-color: #b2865ab7;
     color: white;
@@ -185,7 +191,7 @@ button {
     transition: all ease-in-out 200ms;
 }
 
-button:hover{
+.caja-login button:hover{
     /* background-color: #5a432d; */
     background-color: #856443b7;
     color: white;
@@ -202,3 +208,32 @@ h2{
 .margenNuevo{
     margin-right: 2rem;
 }
+
+/* estilos asociados a la pagina index o inicio */
+.enlaces-inicio{
+    width: 40%;
+}
+/* estilo para los enlaces disponibles en el menu de inicio */
+.enlaces-inicio a{
+    background-color: #2b87cdb7;
+    color: white;
+    font-weight: normal;
+    transition: 100ms ease-in-out all;
+    border: 1.2px solid rgba(0, 0, 0, 0.30);
+    text-decoration: none;
+    border-radius: 0.3em;
+    padding: 0.2em;
+    margin: 0.2em;
+    width: 100%; 
+    text-align: center;
+}
+
+.enlaces-inicio a:hover{
+    background-color:#3c9ce58d;
+}
+
+.titulo-inicio{
+    color: white;
+}
+
+
