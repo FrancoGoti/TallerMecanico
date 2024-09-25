@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.jupiter.api.Test;
@@ -15,8 +14,8 @@ public class MarcaTest {
 
     @Test
     public void testAgregarMarca() throws InterruptedException {
-        System.setProperty("webdriver.edge.driver", "C:\\Users\\franc\\Desktop\\Universidad\\Testing de Software\\Driver_Notes\\msedgedriver.exe"); 
-        WebDriver driver = new EdgeDriver();
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\niqui\\Desktop\\\\Testing 2024\\chromedriver-win64\\chromedriver.exe"); 
+        WebDriver driver = new ChromeDriver();
 
 
         try {
@@ -25,11 +24,11 @@ public class MarcaTest {
             Thread.sleep(1500); // Pausa de 2 segundos
             
             WebElement usernameField = driver.findElement(By.name("username"));
-            usernameField.sendKeys("franco");
+            usernameField.sendKeys("nico");
             Thread.sleep(1000); // Pausa de 1 segundo
 
             WebElement passwordField = driver.findElement(By.id("password"));
-            passwordField.sendKeys("gotas");
+            passwordField.sendKeys("nico");
             Thread.sleep(1000);
 
             WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit']"));

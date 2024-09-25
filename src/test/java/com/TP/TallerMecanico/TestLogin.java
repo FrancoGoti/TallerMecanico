@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.jupiter.api.Test;
@@ -15,8 +14,8 @@ public class TestLogin {
     @Test
     public void testLoginIncorrectoYCorrecto() throws InterruptedException {
         // Configuración del WebDriver para Chrome
-        System.setProperty("webdriver.edge.driver", "C:\\Users\\franc\\Desktop\\Universidad\\Testing de Software\\Driver_Notes\\msedgedriver.exe"); 
-        WebDriver driver = new EdgeDriver();
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\niqui\\Desktop\\Testing 2024\\chromedriver-win64\\chromedriver.exe"); 
+        WebDriver driver = new ChromeDriver();
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -45,10 +44,10 @@ public class TestLogin {
 
             // INTENTO 2: Logueo exitoso con credenciales correctas
             WebElement usernameField2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
-            usernameField2.sendKeys("franco");
+            usernameField2.sendKeys("nico");
             Thread.sleep(1000); 
             WebElement passwordField2 = driver.findElement(By.id("password"));
-            passwordField2.sendKeys("gotas");
+            passwordField2.sendKeys("nico");
             Thread.sleep(1000); 
 
             WebElement loginButton2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
