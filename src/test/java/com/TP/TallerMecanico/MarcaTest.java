@@ -6,8 +6,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.TP.TallerMecanico.entidad.Marca;
+import com.TP.TallerMecanico.interfaz.IMarca;
+import com.TP.TallerMecanico.servicio.IMarcaService;
+import com.TP.TallerMecanico.servicio.MarcaImplementacion;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import java.time.Duration;
+import java.util.Optional;
 
 
 public class MarcaTest {
@@ -16,7 +35,6 @@ public class MarcaTest {
     public void testAgregarMarca() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\niqui\\Desktop\\\\Testing 2024\\chromedriver-win64\\chromedriver.exe"); 
         WebDriver driver = new ChromeDriver();
-
 
         try {
             // LOGUEO
@@ -102,4 +120,47 @@ public class MarcaTest {
            driver.quit();
         }
     }
+
+
+    @Mock
+    private IMarca marcaRepository;  // Inyección del mock del repositorio
+
+    @InjectMocks
+    private MarcaImplementacion marcaService;  // Inyección del servicio que usará el mock
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this); // Inicializa los mocks
+    }
+
+    @Test
+    public void testGuardarMarca() {
+        Marca marca = new Marca();
+        marca.setIdMarca((long) 20);
+        marca.setNombre("Toyota");
+        marca.setImpuesto((double) 15.0);
+    
+        // Simula el comportamiento del repositorio
+        when(marcaRepository.save(any(Marca.class))).thenReturn(marca);
+    
+        // Se llama al método guardar
+        marcaService.guardar(marca);
+    
+        // Simulamos la recuperación de la marca guardada
+        when(marcaRepository.findById(20L)).thenReturn(Optional.of(marca));
+
+        // Recupera la marca que se guardó
+        Optional<Marca> optionalMarca = marcaRepository.findById(20L);
+        Marca nuevaMarca = optionalMarca.orElse(null); // Extrae el objeto Marca del Optional
+
+        // Verifica que los valores sean correctos
+        assertNotNull(nuevaMarca); // Verifica que no sea nulo antes de hacer las aserciones
+        assertEquals(20L, nuevaMarca.getIdMarca());
+        assertEquals("TOYOTA", nuevaMarca.getNombre()); //Se pone el nombre de la marca en mayus porque asi es como se guarda en la base de datos
+        assertEquals(15.0, nuevaMarca.getImpuesto(), 0.01);
+
+        // Verifica que el método save fue invocado una vez
+        verify(marcaRepository, times(1)).save(any(Marca.class));
+    }
+
 }
