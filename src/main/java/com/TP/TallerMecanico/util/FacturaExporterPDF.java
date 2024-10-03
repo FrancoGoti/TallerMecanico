@@ -19,7 +19,6 @@ import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import jakarta.servlet.http.HttpServletResponse;
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
