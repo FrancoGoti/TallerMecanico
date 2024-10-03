@@ -30,6 +30,7 @@ import java.time.Duration;
 import java.util.Optional;
 
 
+@SuppressWarnings("unused")
 public class MarcaTest {
 
     @Test
