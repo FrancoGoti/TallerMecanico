@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.TP.TallerMecanico.entidad.Marca;
 import com.TP.TallerMecanico.interfaz.IMarca;
-import com.TP.TallerMecanico.servicio.IMarcaService;
 import com.TP.TallerMecanico.servicio.MarcaImplementacion;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +28,6 @@ import java.time.Duration;
 import java.util.Optional;
 
 
-@SuppressWarnings("unused")
 public class MarcaTest {
 
     @Test

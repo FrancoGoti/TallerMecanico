@@ -72,6 +72,7 @@ public class ClienteController {
     }
 
 
+    @SuppressWarnings("null")
     @GetMapping("/buscarClientes")
     public String buscarNombreFechaCliente(@RequestParam(name = "nombre", required = false) String nombre,
                                         @RequestParam(name = "fechaDesde", required = false) LocalDate fechaDesde,
