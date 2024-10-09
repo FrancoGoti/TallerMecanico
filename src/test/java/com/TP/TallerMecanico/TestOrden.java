@@ -8,10 +8,6 @@ import com.TP.TallerMecanico.entidad.DetalleOrden;
 import com.TP.TallerMecanico.entidad.Marca;
 import com.TP.TallerMecanico.entidad.Orden;
 
-
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.Locale;
 public class TestOrden {
     @Test
 	public void testCalcularTotalSinImpuesto() {

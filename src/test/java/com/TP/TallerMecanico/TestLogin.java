@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.jupiter.api.Test;
 import java.time.Duration;
 
-@SuppressWarnings("unused")
 public class TestLogin {
 
     @Test
