@@ -128,6 +128,7 @@ public class DetalleOrdenController {
     @GetMapping("/ordenes/eliminarDetalleOrden/{idDetalleOrden}/{idOrden}")
     public String eliminarDetalleOrden(@PathVariable ("idOrden") Long idOrden, DetalleOrden detalleOrden) {
         detalleOrdenService.eliminar(detalleOrden);
+        @SuppressWarnings("unused")
         var orden = ordenService.buscarOrden(idOrden);
         String redirectUrl = "redirect:/ordenes/detallesOrden/" + idOrden;
 
