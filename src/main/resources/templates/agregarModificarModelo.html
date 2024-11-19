@@ -4,34 +4,38 @@
 <head>
     <title>Modelo</title>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
 </head>
 
 <body>
-    <div class="container mt-4">
-        <div class="col-sm-6">
+
+    <div class="hero">
+
+    
+
+    <div class="fila flex-center">
+        <div class="caja-barra-busqueda-card m-t">
             <div th:if="${modo eq 'nuevo'}">
                 <form th:action="@{/guardarModelo}" th:object=${modelo} method="POST">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Modelo</h3>
+                    <div class="col-100">
+                        <div>
+                            <h2>Agregar Modelo</h2>
                         </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <input type="hidden" name="idModelo" th:field="*{idModelo}" />
+
+                        <div class="flex-column-center">
+                            <div>
+                                <input class="buscador-card" type="hidden" name="idModelo" th:field="*{idModelo}" />
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Nombre</label>
-                                <input class="form-control" type="text" name="nombreModelo" th:field="*{nombre}" />
+                            <div>
+                                <label>Nombre</label>
+                                <input class="buscador-card" type="text" name="nombreModelo" th:field="*{nombre}" />
                                 <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Marca</label>
-
-                                <select class="form-control" id="marca" name="marca" required>
+                            <div class="m-t">
+                                <label>Marca</label>
+                                <select id="marca" name="marca" required>
                                     <option value="" disabled selected>Selecciona una Marca</option>
                                     <option th:each="marca : ${marcas}" th:value="${marca.idMarca}"
                                         th:text="${marca.nombre}"
@@ -43,36 +47,39 @@
                             <div class="form-group">
                                 <input type="hidden" name="estadoModelo" th:field="*{estado}" />
                             </div>
-
                         </div>
-                        <div class="card-footer">
-                            <input type="submit" class="btn btn-success" value="Guardar" />
-                            <a class="btn btn-danger" th:href="@{/modelos}">Regresar</a>
+
+                        <div class="flex-center m-t">
+                            <input type="submit" class="btn-editar-card m-r" value="Guardar" />
+                            <a class="btn-eliminar" th:href="@{/modelos}">Regresar</a>
                         </div>
                     </div>
                 </form>
+
+
             </div> <!-- Nuevo form para guardar-->
             <div th:if="${modo eq 'editar'}">
                 <form th:action="@{/actualizarModelo}" th:object=${modelo} method="POST">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Modelo</h3>
+                    <div class="col-100">
+
+                        <div>
+                            <h2>Editar Modelo</h2>
                         </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <input type="hidden" name="idModelo" th:field="*{idModelo}" />
+
+                        <div class="flex-column-center">
+                            <div>
+                                <input class="buscador-card" type="hidden" name="idModelo" th:field="*{idModelo}" />
                             </div>
 
                             <div class="form-group">
-                                <label style="font-weight: bold;">Nombre</label>
-                                <input class="form-control" type="text" name="nombreModelo" th:field="*{nombre}" />
+                                <label>Nombre</label>
+                                <input class="buscador-card" type="text" name="nombreModelo" th:field="*{nombre}" />
                                 <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Marca</label>
-
-                                <select class="form-control" id="marca" name="marca" required>
+                            <div class="m-t">
+                                <label>Marca</label>
+                                <select id="marca" name="marca" required>
                                     <option value="" disabled selected>Selecciona una Marca</option>
                                     <option th:each="marca : ${marcas}" th:value="${marca.idMarca}"
                                         th:text="${marca.nombre}"
@@ -86,14 +93,15 @@
                             </div>
 
                         </div>
-                        <div class="card-footer">
-                            <input type="submit" class="btn btn-success" value="Actualizar" />
-                            <a class="btn btn-danger" th:href="@{/modelos}">Regresar</a>
+                        <div class="flex-center m-t">
+                            <input type="submit" class="btn-editar-card m-r" value="Actualizar" />
+                            <a class="btn-eliminar" th:href="@{/modelos}">Regresar</a>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+    </div>
     </div>
 </body>
 

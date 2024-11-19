@@ -4,100 +4,106 @@
 <head>
     <title>Tecnico</title>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
 </head>
 
 <body>
-    <div class="container mt-4">
-        <div class="col-sm-6">
-            <div th:if="${modo eq 'nuevo'}">
-                <form th:action="@{/guardarTecnico}" th:object=${tecnico} method="POST">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Tecnico</h3>
-                        </div>
 
-                        <div class="card-body">
-                            <div class="form-group">
-                                <input type="hidden" name="idTecnico" th:field="*{idTecnico}" />
+    <div class="hero">
+
+        <div class="fila flex-center">
+            <div class="caja-barra-busqueda-card m-t">
+                <div th:if="${modo eq 'nuevo'}">
+                    <form th:action="@{/guardarTecnico}" th:object=${tecnico} method="POST">
+                        <div class="col-100">
+                            <div>
+                                <h2>Agregar Tecnico</h2>
                             </div>
-
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Nombre</label>
-                                <input class="form-control" type="text" name="nombreTecnico" th:field="*{nombre}" />
-                                <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+    
+                            <div class="flex-column-center m-t">
+                                <div>
+                                    <input class="buscador-card" type="hidden" name="idTecnico" th:field="*{idTecnico}" />
+                                </div>
+    
+                                <div>
+                                    <label>Nombre</label>
+                                    <input class="buscador-card m-t-small" type="text" name="nombreTecnico" th:field="*{nombre}" />
+                                    <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+                                </div>
+    
+                                <div>
+                                    <label>Apellido</label>
+                                    <input class="buscador-card m-t-small" type="text" name="apellidoTecnico" th:field="*{apellido}" />
+                                    <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
+                                </div>
+    
+                                <div>
+                                    <label>Legajo</label>
+                                    <input class="buscador-card m-t-small" type="text" name="legajoTecnico" th:field="*{legajo}" />
+                                    <span th:if="${#fields.hasErrors('legajo')}" th:errors="*{legajo}"></span>
+                                </div>
+    
+                                <div class="form-group">
+                                    <input type="hidden" name="estadoTecnico" th:field="*{estado}" />
+                                </div>
                             </div>
-
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Apellido</label>
-                                <input class="form-control" type="text" name="apellidoTecnico" th:field="*{apellido}" />
-                                <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Legajo</label>
-                                <input class="form-control" type="text" name="legajoTecnico" th:field="*{legajo}" />
-                                <span th:if="${#fields.hasErrors('legajo')}" th:errors="*{legajo}"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="hidden" name="estadoTecnico" th:field="*{estado}" />
-                            </div>
-                        </div>
-
-                        <div class="card-footer">
-                            <input type="submit" class="btn btn-success" value="Guardar" />
-                            <a class="btn btn-danger" th:href="@{/tecnicos}">Regresar</a>
-                        </div>
-                    </div>
-                </form>
-            </div> <!-- Div nuevo -->
-
-            <div th:if="${modo eq 'editar'}">
-                <form th:action="@{/actualizarTecnico}" th:object=${tecnico} method="POST">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Tecnico</h3>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="form-group">
-                                <input type="hidden" name="idTecnico" th:field="*{idTecnico}" />
-                            </div>
-
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Nombre</label>
-                                <input class="form-control" type="text" name="nombreTecnico" th:field="*{nombre}" />
-                                <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Apellido</label>
-                                <input class="form-control" type="text" name="apellidoTecnico" th:field="*{apellido}" />
-                                <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Legajo</label>
-                                <input class="form-control" type="text" name="legajoTecnico" th:field="*{legajo}" />
-                                <span th:if="${#fields.hasErrors('legajo')}" th:errors="*{legajo}"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="hidden" name="estadoTecnico" th:field="*{estado}" />
+    
+                            <div class="flex-center m-t">
+                                <input type="submit" class="btn-editar-card m-r" value="Guardar" />
+                                <a class="btn-eliminar" th:href="@{/tecnicos}">Regresar</a>
                             </div>
                         </div>
+                    </form>
+                </div> <!-- Div nuevo -->
+    
 
-                        <div class="card-footer">
-                            <input type="submit" class="btn btn-success" value="Actualizar" />
-                            <a class="btn btn-danger" th:href="@{/tecnicos}">Regresar</a>
+                <div th:if="${modo eq 'editar'}">
+                    <form th:action="@{/actualizarTecnico}" th:object=${tecnico} method="POST">
+                        <div class="col-100">
+                            <div>
+                                <h2>Editar Tecnico</h2>
+                            </div>
+    
+                            <div class="flex-column-center">
+                                <div>
+                                    <input class="buscador-card" type="hidden" name="idTecnico" th:field="*{idTecnico}" />
+                                </div>
+    
+                                <div class="m-t">
+                                    <label>Nombre</label>
+                                    <input class="buscador-card m-t-small" type="text" name="nombreTecnico" th:field="*{nombre}" />
+                                    <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+                                </div>
+    
+                                <div class="m-t">
+                                    <label>Apellido</label>
+                                    <input class="buscador-card m-t-small" type="text" name="apellidoTecnico" th:field="*{apellido}" />
+                                    <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
+                                </div>
+    
+                                <div class="m-t">
+                                    <label>Legajo</label>
+                                    <input class="buscador-card m-t-small" type="text" name="legajoTecnico" th:field="*{legajo}" />
+                                    <span th:if="${#fields.hasErrors('legajo')}" th:errors="*{legajo}"></span>
+                                </div>
+    
+                                <div class="form-group">
+                                    <input type="hidden" name="estadoTecnico" th:field="*{estado}" />
+                                </div>
+                            </div>
+    
+                            <div class="flex-center m-t">
+                                <input type="submit" class="btn-editar-card m-r-small" value="Actualizar" />
+                                <a class="btn-eliminar" th:href="@{/tecnicos}">Regresar</a>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
+
     </div>
+
 </body>
 
 </html>
