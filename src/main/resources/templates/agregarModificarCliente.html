@@ -4,64 +4,70 @@
 <head>
     <title>Cliente</title>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
 </head>
 
 <body>
-    <div class="container mt-4">
-        <div class="col-sm-6">
+
+    <div class="hero">
+
+    
+    
+    <div class="fila flex-center">
+        <div class="caja-barra-busqueda-card">
             <div th:if="${modo eq 'nuevo'}">
                 <form th:action="@{/guardarCliente}" th:object=${cliente} method="POST">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Cliente</h3>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="form-group">
-                                <input type="hidden" name="idCliente" th:field="*{idCliente}" />
+                    <div class="fila flex-column-center">
+                        <div>
+                            <div>
+                                <h2>Agregar Cliente</h>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Nombre</label>
-                                <input class="form-control" type="text" name="nombreCliente" th:field="*{nombre}" />
+
+                        <div>
+                            <div>
+                                <input class="buscador-card" type="hidden" name="idCliente" th:field="*{idCliente}" />
+                            </div>
+
+                            <div>
+                                <label>Nombre</label>
+                                <input class="buscador-card" type="text" name="nombreCliente" th:field="*{nombre}" />
                                 <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Apellido</label>
-                                <input class="form-control" type="text" name="apellidoCliente" th:field="*{apellido}" />
+                            <div class="m-t-small">
+                                <label>Apellido</label>
+                                <input class="buscador-card" type="text" name="apellidoCliente" th:field="*{apellido}" />
                                 <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">DNI</label>
-                                <input class="form-control" type="text" name="dniCliente" th:field="*{dni}" />
+                            <div class="m-t-small">
+                                <label>DNI</label>
+                                <input class="buscador-card" type="text" name="dniCliente" th:field="*{dni}" />
                                 <span th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Licencia (Opcional)</label>
-                                <input class="form-control" type="text" name="licenciaCliente" th:field="*{licencia}" />
+                            <div class="m-t-small">
+                                <label>Licencia (Opcional)</label>
+                                <input class="buscador-card" type="text" name="licenciaCliente" th:field="*{licencia}" />
                                 <span th:if="${#fields.hasErrors('licencia')}" th:errors="*{licencia}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Direccion (Opcional)</label>
-                                <input class="form-control" type="text" name="direccionCliente" th:field="*{direccion}" />
+                            <div class="m-t-small">
+                                <label>Direccion (Opcional)</label>
+                                <input class="buscador-card" type="text" name="direccionCliente" th:field="*{direccion}" />
                                 <span th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Email (Opcional)</label>
-                                <input class="form-control" type="text" name="emailCliente" th:field="*{email}" />
+                            <div class="m-t-small">
+                                <label>Email (Opcional)</label>
+                                <input class="buscador-card" type="text" name="emailCliente" th:field="*{email}" />
                                 <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Telefono (Opcional)</label>
-                                <input class="form-control" type="text" name="telefonoCliente" th:field="*{telefono}" />
+                            <div class="m-t-small">
+                                <label>Telefono (Opcional)</label>
+                                <input class="buscador-card" type="text" name="telefonoCliente" th:field="*{telefono}" />
                                 <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></span>
                             </div>
 
@@ -70,64 +76,66 @@
                             </div>
                         </div>
 
-                        <div class="card-footer">
-                            <input type="submit" class="btn btn-success" value="Guardar" />
-                            <a class="btn btn-danger" th:href="@{/clientes}">Regresar</a>
+                        <div class="flex-center m-t">
+                            <input type="submit" class="btn-editar-card" value="Guardar" />
+                            <a class="btn-eliminar m-l" th:href="@{/clientes}">Regresar</a>
                         </div>
                     </div>
                 </form>
-            </div> <!-- Formulario para guardar un nuevo cliente-->
+            </div> 
+            
+            <!-- Formulario para guardar un nuevo cliente-->
             <div th:if="${modo eq 'editar'}">
                 <form th:action="@{/actualizarCliente}" th:object=${cliente} method="POST">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Cliente</h3>
+                    <div class="col-100">
+                        <div>
+                            <h2>Editar Cliente</h2>
                         </div>
 
-                        <div class="card-body">
-                            <div class="form-group">
-                                <input type="hidden" name="idCliente" th:field="*{idCliente}" />
+                        <div class="flex-column-center">
+                            <div>
+                                <input class="buscador-card" type="hidden" name="idCliente" th:field="*{idCliente}" />
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Nombre</label>
-                                <input class="form-control" type="text" name="nombreCliente" th:field="*{nombre}" />
+                            <div>
+                                <label>Nombre</label>
+                                <input class="buscador-card" type="text" name="nombreCliente" th:field="*{nombre}" />
                                 <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Apellido</label>
-                                <input class="form-control" type="text" name="apellidoCliente" th:field="*{apellido}" />
+                            <div>
+                                <label>Apellido</label>
+                                <input class="buscador-card" type="text" name="apellidoCliente" th:field="*{apellido}" />
                                 <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">DNI</label>
-                                <input class="form-control" type="text" name="dniCliente" th:field="*{dni}" />
+                            <div>
+                                <label>DNI</label>
+                                <input class="buscador-card" type="text" name="dniCliente" th:field="*{dni}" />
                                 <span th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Licencia (Opcional)</label>
-                                <input class="form-control" type="text" name="licenciaCliente" th:field="*{licencia}" />
+                            <div>
+                                <label>Licencia (Opcional)</label>
+                                <input class="buscador-card" type="text" name="licenciaCliente" th:field="*{licencia}" />
                                 <span th:if="${#fields.hasErrors('licencia')}" th:errors="*{licencia}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Direccion (Opcional)</label>
-                                <input class="form-control" type="text" name="direccionCliente" th:field="*{direccion}" />
+                            <div>
+                                <label>Direccion (Opcional)</label>
+                                <input class="buscador-card" type="text" name="direccionCliente" th:field="*{direccion}" />
                                 <span th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Email (Opcional)</label>
-                                <input class="form-control" type="text" name="emailCliente" th:field="*{email}" />
+                            <div>
+                                <label>Email (Opcional)</label>
+                                <input class="buscador-card" type="text" name="emailCliente" th:field="*{email}" />
                                 <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label style="font-weight: bold;">Telefono (Opcional)</label>
-                                <input class="form-control" type="text" name="telefonoCliente" th:field="*{telefono}" />
+                            <div>
+                                <label>Telefono (Opcional)</label>
+                                <input class="buscador-card" type="text" name="telefonoCliente" th:field="*{telefono}" />
                                 <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></span>
                             </div>
 
@@ -136,15 +144,16 @@
                             </div>
                         </div>
 
-                        <div class="card-footer">
-                            <input type="submit" class="btn btn-success" value="Actualizar" />
-                            <a class="btn btn-danger" th:href="@{/clientes}">Regresar</a>
+                        <div class="flex-center m-t">
+                            <input type="submit" class="btn-editar-card" value="Actualizar" />
+                            <a class="btn-eliminar m-l" th:href="@{/clientes}">Regresar</a>
                         </div>
                     </div>
                 </form>
             </div> <!-- Formulario para actualizar un cliente-->
         </div>
     </div>
+</div>
 </body>
 
 </html>
