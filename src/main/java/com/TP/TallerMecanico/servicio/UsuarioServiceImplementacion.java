@@ -20,6 +20,7 @@ public class UsuarioServiceImplementacion implements UserDetailsService {
     @Autowired
     private IUsuario usuarioRepository;
 
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // Busca el usuario en la base de datos por nombre de usuario

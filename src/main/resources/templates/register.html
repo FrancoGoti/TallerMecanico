@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+<head>
+    <title>Registro de Usuario</title>
+</head>
+<body>
+    
+    <div class="hero">
+    
+    <div class="fila flex-center">
+        <h2 class="col-100">Registrar un nuevo usuario</h2>
+    </div>
+    
+    <div class="fila flex-center">
+    <form class="caja-login" th:action="@{/register}" method="post">
+        
+        <!-- div de nombre de usuario -->
+        <div class="flex-around">
+            <label class="margenNuevo" for="username">Nombre de Usuario:</label>
+            <input type="text" id="username" name="username" required/>
+        </div>
+    
+        <!-- div de contraseña -->
+        <div class="flex-around m-t">
+            <label class="m-r-small" for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required/>
+        </div>
+        
+        <!-- div de confirmación de contraseña -->
+        <div class="flex-around m-t">
+            <label class="m-r-small" for="confirmPassword">Confirmar Contraseña:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required/>
+        </div>
+    
+        <!-- div de botón de registrar -->
+        <div class="flex-center m-t">
+            <button type="submit">Registrar</button>
+        </div>
+
+        <!-- Enlace para volver al login -->
+        <div class="flex-center m-t">
+            <a href="/login" class="boton-link">¿Ya tienes cuenta? ¡Inicia sesión aquí!</a>
+        </div>
+        
+        <div class="m-t-small flex-center" th:if="${param.error}">
+            <p style="color: red;">{{errorMessage}}</p>
+        </div>
+        
+    </form>
+    </div>
+</div>
+
+</body>
+</html>
