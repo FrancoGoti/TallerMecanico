@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import com.TP.TallerMecanico.servicio.UsuarioServiceImplementacion;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -44,9 +46,8 @@ public class SecurityConfig {
     return http.build();
     }
 
-    @SuppressWarnings("deprecation")
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance(); // No realiza ningún tipo de codificación
+    return new BCryptPasswordEncoder(); // Usa BCrypt para encriptar contraseñas
     }
 }
